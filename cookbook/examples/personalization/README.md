@@ -1,8 +1,7 @@
-# Personalized Memory & Autonomous RAG
+# Personalized Agentic RAG
 
-This cookbook implements Personalized Memory & Autonomous retrieval-augmented generation.
-
-i.e. the Assistant will remember details about the user across runs. Similar to how [ChatGPT implements Memory](https://openai.com/index/memory-and-new-controls-for-chatgpt/).
+This cookbook implements Personalized Agentic RAG.
+Meaning it will remember details about the user and personalize the responses, similar to how [ChatGPT implements Memory](https://openai.com/index/memory-and-new-controls-for-chatgpt/).
 
 > Note: Fork and clone this repository if needed
 
@@ -13,10 +12,18 @@ python3 -m venv ~/.venvs/aienv
 source ~/.venvs/aienv/bin/activate
 ```
 
-### 2. Export `OPENAI_API_KEY`
+### 2. Export credentials
+
+- We use gpt-4o as the LLM, so export your OpenAI API Key
 
 ```shell
 export OPENAI_API_KEY=***
+```
+
+- To use Exa for research, export your EXA_API_KEY (get it from [here](https://dashboard.exa.ai/api-keys))
+
+```shell
+export EXA_API_KEY=xxx
 ```
 
 ### 3. Install libraries
@@ -49,25 +56,26 @@ docker run -d \
   phidata/pgvector:16
 ```
 
-### 5. Run personalized Autonomous RAG App
+### 5. Run streamlit app
 
 ```shell
 streamlit run cookbook/examples/personalization/app.py
 ```
 
 - Open [localhost:8501](http://localhost:8501) to view the streamlit app.
-- Add to memory: "call me 'your highness'"
-- Add to memory: "always respond with a nice greeting and salutation"
-- Add to memory: "i like cats so add a cat pun in the response"
-- Add a website to the knowledge base: https://techcrunch.com/2024/04/18/meta-releases-llama-3-claims-its-among-the-best-open-models-available/
+- Enter a username to associate with the memory.
+- Add to memory: "I live in New York so always include a New York reference in the response"
+- Add to memory: "I like dogs so always include a dog pun in the response"
 - Ask questions like:
-  - What did Meta release?
-  - Tell me more about the Llama 3 models?
-  - Whats the latest news from Meta?
+  - Compare nvidia and amd, use all the tools available
+  - Whats happening in france?
   - Summarize our conversation
+- Add a blog post to the knowledge base: https://blog.samaltman.com/what-i-wish-someone-had-told-me
+- Ask questions like:
+  - What does Sam Altman wish someone had told him?
 
 ### 6. Message on [discord](https://discord.gg/4MtYHHrgA8) if you have any questions
 
 ### 7. Star ⭐️ the project if you like it.
 
-### 8. Share with your friends: [https://git.new/auto-rag](https://git.new/auto-rag)
+### 8. Share with your friends: [https://git.new/personalization](https://git.new/personalization)
